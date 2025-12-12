@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pastel + Glassmorphism Theme */
+    --background: 220 30% 96%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 226 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 20% 92%;
+    --secondary-foreground: 222 47% 20%;
+    
+    --muted: 220 20% 94%;
+    --muted-foreground: 220 10% 45%;
+    
+    --accent: 226 60% 92%;
+    --accent-foreground: 226 70% 45%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 226 70% 55%;
+    
+    --radius: 1rem;
+    
+    /* Custom Pastel Palette */
+    --pastel-blue: 210 100% 95%;
+    --pastel-indigo: 226 100% 94%;
+    --pastel-purple: 270 100% 95%;
+    --pastel-pink: 330 100% 95%;
+    --pastel-green: 150 60% 92%;
+    --pastel-yellow: 45 100% 92%;
+    --pastel-orange: 25 100% 92%;
+    --pastel-red: 0 100% 94%;
+    
+    /* Emotion Colors */
+    --emotion-happy: 45 90% 55%;
+    --emotion-sad: 210 70% 55%;
+    --emotion-neutral: 220 15% 55%;
+    --emotion-angry: 0 75% 55%;
+    --emotion-fear: 270 60% 55%;
+    --emotion-surprise: 35 90% 55%;
+    --emotion-disgust: 150 50% 45%;
+    
+    /* Glass Effects */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-shadow: 226 70% 55% / 0.1;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100% / 0.8;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 226 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 226 60% 92%;
+    --sidebar-accent-foreground: 226 70% 45%;
+    --sidebar-border: 220 20% 88%;
+    --sidebar-ring: 226 70% 55%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 40% 12%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 40% 12%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 226 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 222 30% 16%;
+    --muted-foreground: 215 20% 55%;
+    
+    --accent: 226 40% 20%;
+    --accent-foreground: 226 70% 70%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 222 30% 20%;
+    --input: 222 30% 20%;
+    --ring: 226 70% 60%;
+    
+    --glass-bg: 222 40% 12% / 0.8;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-shadow: 0 0% 0% / 0.3;
+    
+    --sidebar-background: 222 40% 10% / 0.9;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 226 70% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 226 40% 20%;
+    --sidebar-accent-foreground: 226 70% 70%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 226 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 
+      0 8px 32px hsl(var(--glass-shadow)),
+      inset 0 1px 0 hsl(0 0% 100% / 0.1);
+  }
+  
+  .glass-card::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(
+      135deg,
+      hsl(0 0% 100% / 0.1) 0%,
+      transparent 50%
+    );
+  }
+  
+  /* Sidebar Glass */
+  .glass-sidebar {
+    background: hsl(var(--sidebar-background));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-right: 1px solid hsl(var(--glass-border));
+  }
+  
+  /* Navbar Glass */
+  .glass-navbar {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid hsl(var(--glass-border));
+  }
+  
+  /* Emotion Badge */
+  .emotion-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-sm;
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .emotion-badge.happy { background: hsl(var(--pastel-yellow)); color: hsl(var(--emotion-happy)); }
+  .emotion-badge.sad { background: hsl(var(--pastel-blue)); color: hsl(var(--emotion-sad)); }
+  .emotion-badge.neutral { background: hsl(var(--muted)); color: hsl(var(--muted-foreground)); }
+  .emotion-badge.angry { background: hsl(var(--pastel-red)); color: hsl(var(--emotion-angry)); }
+  .emotion-badge.fear { background: hsl(var(--pastel-purple)); color: hsl(var(--emotion-fear)); }
+  .emotion-badge.surprise { background: hsl(var(--pastel-orange)); color: hsl(var(--emotion-surprise)); }
+  .emotion-badge.disgust { background: hsl(var(--pastel-green)); color: hsl(var(--emotion-disgust)); }
+  
+  /* Confidence Bar */
+  .confidence-bar {
+    @apply h-3 rounded-full overflow-hidden;
+    background: hsl(var(--muted));
+  }
+  
+  .confidence-bar-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+  }
+  
+  .confidence-bar-fill.happy { background: linear-gradient(90deg, hsl(var(--emotion-happy)), hsl(45 90% 65%)); }
+  .confidence-bar-fill.sad { background: linear-gradient(90deg, hsl(var(--emotion-sad)), hsl(210 70% 65%)); }
+  .confidence-bar-fill.neutral { background: linear-gradient(90deg, hsl(var(--muted-foreground)), hsl(220 15% 65%)); }
+  .confidence-bar-fill.angry { background: linear-gradient(90deg, hsl(var(--emotion-angry)), hsl(0 75% 65%)); }
+  .confidence-bar-fill.fear { background: linear-gradient(90deg, hsl(var(--emotion-fear)), hsl(270 60% 65%)); }
+  .confidence-bar-fill.surprise { background: linear-gradient(90deg, hsl(var(--emotion-surprise)), hsl(35 90% 65%)); }
+  .confidence-bar-fill.disgust { background: linear-gradient(90deg, hsl(var(--emotion-disgust)), hsl(150 50% 55%)); }
+  
+  /* Webcam Container */
+  .webcam-container {
+    @apply relative rounded-2xl overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--muted)), hsl(var(--background)));
+    box-shadow: 
+      0 20px 60px hsl(var(--glass-shadow)),
+      inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  }
+  
+  .webcam-container video {
+    @apply w-full h-full object-cover;
+    transform: scaleX(-1);
+  }
+  
+  /* FPS Badge */
+  .fps-badge {
+    @apply absolute top-4 left-4 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold;
+    background: hsl(0 0% 0% / 0.6);
+    color: hsl(150 60% 60%);
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Status Indicator */
+  .status-indicator {
+    @apply w-3 h-3 rounded-full;
+  }
+  
+  .status-indicator.active {
+    background: hsl(150 60% 50%);
+    box-shadow: 0 0 12px hsl(150 60% 50% / 0.6);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .status-indicator.inactive {
+    background: hsl(var(--muted-foreground));
+  }
+  
+  /* Sidebar Nav Item */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium;
+    @apply transition-all duration-200 ease-out;
+    @apply text-muted-foreground hover:text-foreground;
+    @apply hover:bg-accent/50;
+  }
+  
+  .nav-item.active {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: 0 4px 16px hsl(var(--primary) / 0.3);
+  }
+  
+  /* Prediction Glow Animation */
+  .prediction-glow {
+    animation: prediction-pulse 0.6s ease-out;
+  }
+  
+  /* No Face State */
+  .no-face-overlay {
+    @apply absolute inset-0 flex flex-col items-center justify-center;
+    background: hsl(var(--background) / 0.9);
+    backdrop-filter: blur(8px);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(270 60% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-pastel {
+    background: linear-gradient(135deg, hsl(var(--pastel-blue)), hsl(var(--pastel-indigo)), hsl(var(--pastel-purple)));
+  }
+  
+  .animate-in {
+    animation: fade-in 0.3s ease-out, scale-in 0.2s ease-out;
+  }
+}
+
+/* Keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 12px hsl(150 60% 50% / 0.6);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px hsl(150 60% 50% / 0.8);
+  }
+}
+
+@keyframes prediction-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .glass-sidebar {
+    @apply fixed inset-y-0 left-0 z-50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+  }
+  
+  .glass-sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
