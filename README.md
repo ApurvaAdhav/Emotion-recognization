@@ -1,74 +1,79 @@
-# Welcome to your Lovable project
+# EmotionAI – Real-time Emotion Recognition Dashboard
 
-## Project info
+EmotionAI is a real-time emotion recognition web application that uses **AI-powered facial analysis** to detect human emotions through a live webcam feed.  
+The system runs entirely in the browser using **TensorFlow.js**, ensuring privacy and real-time performance.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+🎥 Real-time face detection using webcam  
+😊 Live emotion recognition (Happy, Sad, Angry, Neutral, etc.)
+🧠 AI-powered using TensorFlow.js  
+⚡ Fast, client-side inference (no server needed)
+🎨 Modern dashboard UI (React + Tailwind)
+🔒 Privacy-friendly (no image uploads)
 
-**Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+**Frontend:** React + TypeScript + Vite  
+**AI / ML:** TensorFlow.js, face-api.js  
+**Styling:** Tailwind CSS  
+**Build Tool:** Vite  
+**Deployment:** Vercel  
 
-**Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📂 Project Structure
 
-The only requirement is having Bun installed - [install Bun](https://bun.sh/docs/installation)
+emotion-recognition/
+├── public/
+│ ├── favicon.ico
+│ ├── robots.txt
+├── src/
+│ ├── components/
+│ ├── hooks/
+│ ├── pages/
+│ ├── App.tsx
+│ ├── main.tsx
+├── index.html
+├── package.json
+├── vite.config.ts
+└── README.md
 
-Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## ▶️ Run Locally
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ApurvaAdhav/emotion-recognization.git
+Install dependencies:
 
-# Step 3: Install the necessary dependencies.
-bun install
+npm install
+Start development server:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-bun run dev
-```
+npm run dev
+Open in browser:
 
-**Edit a file directly in GitHub**
+http://localhost:5173
+📦 Build for Production
+npm run build
+The optimized build will be generated in the dist/ folder.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+🌐 Deployment
+The project is deployed using Vercel.
+Every push to the main branch triggers an automatic redeployment.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+📌 Use Cases
+Emotion-aware applications
+Human–computer interaction
+Mental health & sentiment analysis demos
+AI/ML academic projects
 
-This project is built with:
 
-- Bun 1.3.4
-- Vite 7.2.7
-- TypeScript
-- React 19.2.1
-- shadcn-ui
-- Tailwind CSS
+👤 Author
+Apurva Adhav
+B.Tech – Artificial Intelligence & Machine Learning
+Passionate about AI-driven real-world solutions 🚀
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
